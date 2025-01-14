@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import random
 def linearSearch(arr: list[int], key: int):
     points = 0
     for i in arr:
@@ -8,18 +7,16 @@ def linearSearch(arr: list[int], key: int):
             return [key, points]
     return [key, points]
 
-def createRandomList(n: int)-> list[int]:
+def createList(n : int):
     arr = []
-    for i in range(n):
-        arr.append(int(random.random() * n))
+    for i in range(1, n + 1):
+        arr.append(i)
     return arr
-
 def runLinearSearch(arr: list[int], n: int) -> list[list[int]]:
     ans = []
-    for i in range(n):
-        ans.append(linearSearch(arr, int(random.random() * n)))
+    for i in range(1, n + 1):
+        ans.append(linearSearch(arr, i))
     return ans
-        
 def plotTheArray(arr: list[int]):
     x = [i[0] for i in arr]
     y = [i[1] for i in arr]
@@ -32,12 +29,7 @@ def plotTheArray(arr: list[int]):
     
     plt.show()
 
-n = 50
-arr = createRandomList(n)
-print(arr)
-damn = runLinearSearch(arr, n)
-print(damn)
-plotTheArray(damn)
-
-
-    
+n = 100
+arr = createList(n)
+ans = runLinearSearch(arr, n)
+plotTheArray(ans)
